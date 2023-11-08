@@ -1,24 +1,25 @@
+#!/bin/bash
+
 arquivo=./numeros.txt
 par=()
 impar=()
 
-while read linha; do
-    if [[ $((linha % 2)) == 0 ]]; then
-        par+=("$linha")
+for numeros in $(cat "$arquivo"); do
+    if [[ $((numeros % 2)) == 0 ]]; then
+        par+=("$numeros")
     else
-        impar+=("$linha")
+        impar+=("$numeros")
     fi
-done < "$arquivo"
-
+done
 
 echo "Os numeros pares são"
 echo
-for par in ${par[@]}; do
-    echo $par
+for numero in ${par[@]}; do
+    echo $numero
 done
 echo
 echo "Os numeros impares são"
 echo
-for impar in ${impar[@]}; do
-    echo $impar
+for numero in ${impar[@]}; do
+    echo $numero
 done
